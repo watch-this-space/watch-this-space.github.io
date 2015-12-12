@@ -1,0 +1,8 @@
+ideas:
+
+menu items shown on cards
+clicking on menu item, rotates to card, brings card to "full screen", changes page to that menu item
+menu bar shows active page
+
+
+continue line 349 jquery cloud9
