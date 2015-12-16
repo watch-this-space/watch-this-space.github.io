@@ -1,127 +1,104 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Watch This Space - Social Enterprise - Manchester</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/common.css">
-    <meta name="viewport" content="width=device-width">
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-    <style>
-    
-  </style>
-  </head>
-  <body>
+<head>
+  <title>Watch This Space</title>
+  <link href="css/styles.css" rel="stylesheet">
+</head>
 
-    <div class="title">
-      Watch This Space
+<body>
+
+  <div id="title">
+    <h1>Watch This Space</h1>
+  </div>
+
+  <div id="nav">
+    <ul id="menu">
+    </ul>
+  </div>
+
+  <div id="main">
+    <div class="carouselbox">
+      <ol class="content">
+        <li class="card"><h2>About us</h2><div class="about"></div></li>
+        <li class="card"><h2>Latest news</h2><div class="news"></div></li>
+        <li class="card"><h2>Agenda</h2></li>
+        <li class="card"><h2>Articles</h2></li>
+        <li class="card"><h2>Workshops</h2></li>
+        <li class="card"><h2>Contact</h2></li>
+      </ol>
     </div>
 
-
-    <div class="wrap">
-      <div id="showcase" class="noselect">
-        <div class="menubar">
-          <ul id="menu">
-
-          </ul>
-        </div>
-
-        <div class="card">
-          <h1>About Us</h1>
-        </div>
-        <div class="card">
-          <h1>Our team</h1>
-        </div>
-        <div class="card">
-          <h1>Agenda</h1>
-        </div>
-        <div class="card">
-          <h1>Contact</h1>
-        </div>
-        <div class="card">
-          <h1>Test</h1>
-        </div>
-      </div>
-    </div>
-  
     <div class="buttons">
-      <button class="nav noselect left">
-        &lt;
+      <button class="prev">
+        &#x25c0<span class="offscreen">Previous</span>
       </button>
-      <button class="nav noselect right">
-        &gt;
+      <button class="next">
+        &#x25b6<span class="offscreen">Next</span> 
       </button>
     </div>
+  </div>
 
+  <footer id="foot01"></footer>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="javascripts/jquery.cloud9carousel.js"></script>
-    <script src="javascripts/scale.fix.js"></script>
-    <script>
+  <script src="js/script.js"></script>
+  <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
 
-    var cards = $('.wrap').find('.card h1');
-    var text = [];
-    var i_1 = 0;
+  <script>
+
     
-    cards.each(function(){ 
-      text[i_1] = $(this).text();
-      i_1++;
-    })
-
-    for(var j = 0; j < text.length; j++ ) {
-      $('.menubar #menu').append('<li><a href="javascript:;">' + text[j] + '</a></li>')
-    }
-
-    //$('.showcase').css('height', $('.cards').css('height'));
-    
-    // carousel 
     $(function() {
-      var showcase = $("#showcase")
-      showcase.Cloud9Carousel( {
-        yOrigin: 0,
-        yRadius: 20,
-        xRadius: 650,
-        itemClass: "card",
-        menuClass: "menubar",
-        buttonLeft: $(".nav.left"),
-        buttonRight: $(".nav.right"),
-        bringToFront: true,
-        menuMove: true,
-        farScale: 0.5,
-        onLoaded: function() {
-          showcase.css( 'visibility', 'visible' )
-          showcase.css( 'display', 'none' )
-          showcase.fadeIn( 1000 )
-        }
+      // Populate menubar
+      $('.content').find('.card').each(function() {
+        $('#menu').append("<li><a href='javascript:void(0);'>"+$(this).first('h2').text()+"</a></li>");
       })
-      //
-      // Simulate physical button click effect
-      //
-      $('.nav').click( function( e ) {
-        var b = $(e.target).addClass( 'down' )
-        setTimeout( function() { b.removeClass( 'down' ) }, 80 )
-      } )
-      $(document).keydown( function( e ) {
-        //
-        // More codes: http://www.javascripter.net/faq/keycodes.htm
-        //
-        switch( e.keyCode ) {
-          /* left arrow */
-          case 37:
-            $('.nav.left').click()
-            break
-          /* right arrow */
-          case 39:
-            $('.nav.right').click()
-        }
-      } )
+
+      // Populate cards
+      $('.about').html('Cras consequat viverra libero eu luctus. Proin at eleifend lacus. Aenean quis facilisis nisi, eget pretium lacus. Donec vel ipsum commodo quam auctor viverra et vitae est. Phasellus quis porta neque. Quisque et nibh in est ultrices maximus. Curabitur at velit nec elit suscipit tristique vitae non sapien. Duis rutrum rutrum massa id aliquet. Donec sodales, neque non faucibus vehicula, purus elit scelerisque tellus, a vehicula velit turpis vel velit. Donec fringilla tellus enim, a volutpat erat fermentum at. <br><br>Mauris aliquam non odio nec gravida. Phasellus cursus tellus ut risus blandit, nec feugiat enim tincidunt. Quisque eu justo magna. Curabitur nulla erat, scelerisque sit amet justo eu, blandit faucibus ante. Fusce posuere turpis at tempus vestibulum. Maecenas egestas ligula augue, pulvinar accumsan nulla condimentum sed. In gravida sem turpis, nec suscipit nunc viverra eu.');
+
+      $('.card .news').html('Nulla ornare, felis ut porta porta, enim leo posuere turpis, et vehicula neque felis et eros. Quisque eget purus ut velit euismod tempus. Pellentesque quis ipsum ut risus congue pretium at ut sapien. Integer volutpat ultricies tortor at pharetra. Nam congue sit amet neque quis venenatis. Cras interdum nisl quis tincidunt porttitor. Donec eu arcu porta, vulputate erat at, placerat sem. Etiam gravida nulla in justo venenatis imperdiet. Cras placerat maximus est, in consequat libero venenatis eget. Morbi euismod nibh ut magna aliquam malesuada. Morbi sem mauris, sodales ac lorem at, luctus fringilla odio. <br><br> Sed pulvinar fringilla vehicula. Aenean vel congue lorem. Aliquam sagittis diam in augue aliquet, eget imperdiet quam volutpat. Fusce accumsan nec arcu et sollicitudin. In cursus magna id sem semper cursus. Vestibulum a nunc convallis, cursus justo id, consectetur purus. Aliquam aliquam efficitur nunc, sed finibus libero rhoncus id. Vestibulum ut lacinia nibh. Integer eu sem eleifend, finibus sem quis, sagittis orci.');
+
+      // Carousel
+      var cards = $('.content').find('.card');
+      var numCards = cards.length;
+
+      $('.carouselbox').addClass('active');
+      $('.content li').first().addClass('current');
+
+      var current = $('.content .current');
+      var curr = cards.index(current);
+
+      $('.buttons .prev').click(function() {
+        navigate(curr-1);
+      });
+      $('.buttons .next').click(function() {
+        navigate(curr+1);
+      });
+
+      var menuItems = $('#menu').find('li');
+
+      $('#menu li a').click(function() {
+        var idx = menuItems.index($(this).parent());
+        
+        navigate(idx);
+      });
+
+      navigate = function( idx ) {
+        // remove current card
+        current.removeClass('current');
+        
+        // update curr index
+        if ( idx < 0 ) { idx = numCards - 1; }
+        if ( idx >= numCards ) { idx = 0; }
+        curr = idx;
+
+        current = cards.eq(idx);
+        current.addClass('current');
+      }
 
     })
+
   </script>
-    
-  </body>
+
+</body>
 </html>
