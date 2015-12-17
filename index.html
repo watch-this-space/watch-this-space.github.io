@@ -10,11 +10,14 @@
 
   <div id="title">
     <h1>Watch This Space</h1>
+    <a class="top-nav noselect" href=javascript:void(0);>&nbsp&#9776;&nbsp</a>
   </div>
 
   <div id="nav">
-    <ul id="menu">
-    </ul>
+    <div class="menubar">
+      <ul id="menu" class="noselect">
+      </ul>
+    </div>
   </div>
 
   <div id="main">
@@ -95,6 +98,11 @@
         current = cards.eq(idx);
         current.addClass('current');
       }
+
+      // top navigation
+      $('.top-nav').click(function() {
+        $('.menubar').slideToggle(200);
+      });
 
     })
 
